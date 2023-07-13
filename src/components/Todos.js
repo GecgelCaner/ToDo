@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todos = ({ todos }) => {
+const Todos = ({ todos, deleteTodo, doneTodo }) => {
   return todos.length > 0 ? (
     <ul className="todos">
       {todos.map((todo) => (
@@ -8,13 +8,13 @@ const Todos = ({ todos }) => {
           <span
             className={
               todo.status ? "todos_text  todos__text--done" : "todos_text"
-            }
+            } 
           >
             {todo.name}
           </span>
           <div className="todos_buttons">
-            <button href="#">❌</button>
-            <button disabled={todo.status} href="#">
+            <button onClick={() => deleteTodo(todo.id)}>❌</button>
+            <button onClick={() => doneTodo(todo.id)} disabled={todo.status}>
               ✅
             </button>
           </div>
