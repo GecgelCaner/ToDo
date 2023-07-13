@@ -16,10 +16,17 @@ function App() {
       status: true,
     },
   ]);
+
+  const addTodo = (todo) => {
+    if (todo.name) {
+      setTodos([...todos, todo]);
+    }
+  };
+
   return (
     <div className="App">
       <h1>todos</h1>
-      <TodoField />
+      <TodoField addTodo={addTodo} />
       <Todos todos={todos} />
     </div>
   );
