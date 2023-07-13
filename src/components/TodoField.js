@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-const TodoField = ({ aadTodo }) => {
+const TodoField = ({ addTodo }) => {
   const [value, setValue] = useState("");
 
   return (
     <div className="todoField">
       <input
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}  
         type="text"
         className="todoField__input"
       />
       <button
         onClick={() =>
-          aadTodo({
+          addTodo({
             id: uuidv4(),
             name: value,
             status: false,
